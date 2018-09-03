@@ -2,18 +2,19 @@
 
 Cara Install
 - Buat Database
-- Import Database zain.sql
 - Masuk ke project zaincms
 - Rename file .env.example => .env
 - Setting database di .env
 - composer install
 - php artisan key:generate
+- php artisan migrate
+- php artisan db:seed
 - php artisan serve
 
 url admin
 - http://127.0.0.1:8000/admin
-- email : admin@admin.com
-- password : 123456
+- email : admin@mail.com
+- password : admin
 
 ![enter image description here](https://lh3.googleusercontent.com/SMj1RinpJGs8QEEHqC7ZTjrge-u7r7pNv699689WYxkNVwZsGF4ES4qrznjfxnjnYPTEFuyiUYpv)
 
