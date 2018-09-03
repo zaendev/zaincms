@@ -141,8 +141,12 @@
 
             @yield('content')
 
-        </div>
-
+        </div>  
+        
+        <footer class="main-footer">
+            <strong>Copyright &copy; 2018-2018 <a href="https://share.web.id"> ZAIN</a>.</strong> All rights reserved. Beta 1
+        </footer>
+        
     </div>
     <script src="{{ asset('admin/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('admin/js/adminlte.min.js') }}"></script>
