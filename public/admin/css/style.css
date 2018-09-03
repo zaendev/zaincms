@@ -9,7 +9,6 @@ label:not(.form-check-label):not(.custom-file-label) {
     color: #555;
     border-top: 1px solid #dee2e6;
     background: #fff;
-    margin-left: 0;
 }
 .btn-a {
     cursor: pointer;
