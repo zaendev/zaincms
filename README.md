@@ -12,7 +12,7 @@ Cara Install
 - php artisan serve
 
 url admin
-- http://127.0.0.1:8000/admin
+- http://127.0.0.1:8000/admz
 - email : admin@mail.com
 - password : admin
 
