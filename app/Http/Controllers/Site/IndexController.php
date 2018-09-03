@@ -36,7 +36,11 @@ class IndexController extends Controller
             'keyword' => $menu->keyword,
         ];
 
-        $template = $menu->template;
+        if(empty($menu->template)){
+            $template = 'page';
+        } else {
+            $template = $menu->template;
+        }
 
         return view('site.' . $template,
             [
