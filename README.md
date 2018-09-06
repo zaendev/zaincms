@@ -5,7 +5,7 @@ Cara Install
 - Masuk ke project zaincms
 - Rename file .env.example => .env
 - Setting database di .env
-- composer install
+- composer update
 - php artisan key:generate
 - php artisan migrate
 - php artisan db:seed
