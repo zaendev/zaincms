@@ -59,7 +59,7 @@ class Content
                 ->where('id', $d->menu_id)
                 ->first();
 
-            if(isset($dataCategory) or isset($dataMenu)){
+            if(isset($dataMenu)){
                 if ($list) {
                     $post[] = [
                         'id' => $d->id,
