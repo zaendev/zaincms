@@ -59,22 +59,23 @@ class Content
                 ->where('id', $d->menu_id)
                 ->first();
 
-            if(isset($dataMenu)){
                 if ($list) {
-                    $post[] = [
-                        'id' => $d->id,
-                        'slug' => $d->slug,
-                        'name' => $d->name,
-                        'title' => $d->title,
-                        'content' => $d->content,
-                        'image' => asset('media/images/' . $d->image),
-                        'thumb' => asset('media/thumb/' . $d->image),
-                        'view' => $d->view,
-                        'status' => $d->status,
-                        'created_at' => $d->created_at,
-                        'category' => !empty($dataCategory) ? $dataCategory : null,
-                        'menu' => !empty($dataMenu) ? $dataMenu : null,
-                    ];
+                    if(isset($dataMenu)){
+                        $post[] = [
+                            'id' => $d->id,
+                            'slug' => $d->slug,
+                            'name' => $d->name,
+                            'title' => $d->title,
+                            'content' => $d->content,
+                            'image' => asset('media/images/' . $d->image),
+                            'thumb' => asset('media/thumb/' . $d->image),
+                            'view' => $d->view,
+                            'status' => $d->status,
+                            'created_at' => $d->created_at,
+                            'category' => !empty($dataCategory) ? $dataCategory : null,
+                            'menu' => !empty($dataMenu) ? $dataMenu : null,
+                        ];
+                    }
                 } else {
                     $post[] = [
                         'id' => $d->id,
@@ -95,7 +96,6 @@ class Content
                         'menu' => !empty($dataMenu) ? $dataMenu : null,
                     ];
                 }
-            }
         }
 
         return Helper::array_to_object($post);
@@ -103,7 +103,7 @@ class Content
 
     public static function post($search = null, $menu = null, $category = null, $status = null)
     {
-        return self::data_post(null, null, $status, $menu, $category, $search, 1);
+        return self::data_post(null, null, $status, $menu, $category, $search, null);
     }
 
     public static function show_post($slug)
