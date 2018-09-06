@@ -187,6 +187,11 @@ class PageController extends Controller
     public function destroy($id)
     {
         $data = page::findOrFail($id);
+        
+        DB::table('posts')
+            ->where('menu_id', $id)
+            ->update(['menu_id' => 0]);
+        
         $oldImage = $data->image;
         if ($oldImage) {
             if (file_exists(public_path('media/images/' . $oldImage))) {
