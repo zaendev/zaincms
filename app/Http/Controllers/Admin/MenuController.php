@@ -129,12 +129,20 @@ class MenuController extends Controller
         $query = DB::table('pages')
             ->where('parent', $request->id)
             ->get();
+	    
+	DB::table('posts')
+            ->where('menu_id', $request->id)
+            ->update(['menu_id' => 0]);
 
         if (count($query) > 0) {
             foreach ($query as $q) {
                 DB::table('pages')
                     ->where('id', $q->id)
                     ->delete();
+		    
+		DB::table('posts')
+                    ->where('menu_id', $q->id)
+                    ->update(['menu_id' => 0]);
             }
         }
 
