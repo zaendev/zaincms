@@ -190,7 +190,7 @@ class PageController extends Controller
         
         DB::table('posts')
             ->where('menu_id', $id)
-            ->update(['menu_id' => 0]);
+            ->update(['menu_id' => 0, 'status' => 0]);
         
         $oldImage = $data->image;
         if ($oldImage) {
