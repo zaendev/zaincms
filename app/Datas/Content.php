@@ -59,40 +59,42 @@ class Content
                 ->where('id', $d->menu_id)
                 ->first();
 
-            if ($list) {
-                $post[] = [
-                    'id' => $d->id,
-                    'slug' => $d->slug,
-                    'name' => $d->name,
-                    'title' => $d->title,
-                    'content' => $d->content,
-                    'image' => asset('media/images/' . $d->image),
-                    'thumb' => asset('media/thumb/' . $d->image),
-                    'view' => $d->view,
-                    'status' => $d->status,
-                    'created_at' => $d->created_at,
-                    'category' => !empty($dataCategory) ? $dataCategory : null,
-                    'menu' => !empty($dataMenu) ? $dataMenu : null,
-                ];
-            } else {
-                $post[] = [
-                    'id' => $d->id,
-                    'slug' => $d->slug,
-                    'category_id' => $d->category_id,
-                    'name' => $d->name,
-                    'title' => $d->title,
-                    'content' => $d->content,
-                    'image' => asset('media/images/' . $d->image),
-                    'thumb' => asset('media/thumb/' . $d->image),
-                    'seo' => $d->seo,
-                    'keyword' => $d->keyword,
-                    'status' => $d->status,
-                    'view' => $d->view,
-                    'plugin' => $d->plugin,
-                    'created_at' => $d->created_at,
-                    'category' => !empty($dataCategory) ? $dataCategory : null,
-                    'menu' => !empty($dataMenu) ? $dataMenu : null,
-                ];
+            if(isset($dataCategory) or isset($dataMenu)){
+                if ($list) {
+                    $post[] = [
+                        'id' => $d->id,
+                        'slug' => $d->slug,
+                        'name' => $d->name,
+                        'title' => $d->title,
+                        'content' => $d->content,
+                        'image' => asset('media/images/' . $d->image),
+                        'thumb' => asset('media/thumb/' . $d->image),
+                        'view' => $d->view,
+                        'status' => $d->status,
+                        'created_at' => $d->created_at,
+                        'category' => !empty($dataCategory) ? $dataCategory : null,
+                        'menu' => !empty($dataMenu) ? $dataMenu : null,
+                    ];
+                } else {
+                    $post[] = [
+                        'id' => $d->id,
+                        'slug' => $d->slug,
+                        'category_id' => $d->category_id,
+                        'name' => $d->name,
+                        'title' => $d->title,
+                        'content' => $d->content,
+                        'image' => asset('media/images/' . $d->image),
+                        'thumb' => asset('media/thumb/' . $d->image),
+                        'seo' => $d->seo,
+                        'keyword' => $d->keyword,
+                        'status' => $d->status,
+                        'view' => $d->view,
+                        'plugin' => $d->plugin,
+                        'created_at' => $d->created_at,
+                        'category' => !empty($dataCategory) ? $dataCategory : null,
+                        'menu' => !empty($dataMenu) ? $dataMenu : null,
+                    ];
+                }
             }
         }
 
