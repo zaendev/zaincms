@@ -136,7 +136,7 @@ class CategoryController extends Controller
 	    
 	DB::table('posts')
             ->where('category_id', $request->id)
-            ->update(['category_id' => 0]);
+            ->update(['category_id' => 0, 'status' => 0]);
 
         if (count($query) > 0) {
             foreach ($query as $q) {
@@ -146,7 +146,7 @@ class CategoryController extends Controller
 		  
 		DB::table('posts')
                     ->where('category_id', $q->id)
-                    ->update(['category_id' => 0]);
+                    ->update(['category_id' => 0, 'status' => 0]);
             }
         }
 
