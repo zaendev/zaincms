@@ -133,12 +133,20 @@ class CategoryController extends Controller
         $query = DB::table('categories')
             ->where('parent', $request->id)
             ->get();
+	    
+	DB::table('posts')
+            ->where('category_id', $request->id)
+            ->update(['category_id' => 0]);
 
         if (count($query) > 0) {
             foreach ($query as $q) {
                 DB::table('categories')
                     ->where('id', $q->id)
                     ->delete();
+		  
+		DB::table('posts')
+                    ->where('category_id', $q->id)
+                    ->update(['category_id' => 0]);
             }
         }
 
