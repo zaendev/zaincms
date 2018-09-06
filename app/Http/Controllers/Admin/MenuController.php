@@ -132,7 +132,7 @@ class MenuController extends Controller
 	    
 	DB::table('posts')
             ->where('menu_id', $request->id)
-            ->update(['menu_id' => 0]);
+            ->update(['menu_id' => 0, 'status' => 0]);
 
         if (count($query) > 0) {
             foreach ($query as $q) {
@@ -142,7 +142,7 @@ class MenuController extends Controller
 		    
 		DB::table('posts')
                     ->where('menu_id', $q->id)
-                    ->update(['menu_id' => 0]);
+                    ->update(['menu_id' => 0, 'status' => 0]);
             }
         }
 
